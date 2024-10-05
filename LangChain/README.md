@@ -5,27 +5,26 @@ LangChain is a framework for building applications with large language models (L
 ## Components
 
 ### Models
-* LLMs
-* Chat Models
-* Text Embedding Models
+* [Large Language Models LLMs](/LangChain/COMPONENTS.md#2-llm)
+* [Chat Models](/LangChain/COMPONENTS.md#1-chat-models)
+* [Text Embedding Models](/LangChain/COMPONENTS.md#11-embedding-models)
 
 ### Prompts
-* [Prompts Templates](/LangChain/PROMPTS.md)
-* Output Parser
-    - Retry / fixing logic
-* Example Selectors
+* [Prompts Templates](/LangChain/COMPONENTS.md#4-prompt-templates)
+* [Few-Shot Prompting](/LangChain/TECHNIQUES.md#4-few-shot-prompting)
+* [Output Parser](/LangChain/COMPONENTS.md#6-output-parser)
+* [Example Selectors](/LangChain/COMPONENTS.md#5-example-selectors)
 
 ### Indexes
-* Document Loaders
-* Text Splitters
-* Vector Stores
-* Retrievers
+* [Document Loaders](/LangChain/COMPONENTS.md#9-document-loaders)
+* [Text Splitters](/LangChain/TECHNIQUES.md#6-text-splitting)
+* [Vector Stores](/LangChain/COMPONENTS.md#12-vector-stores)
+* [Retrievers](/LangChain/TECHNIQUES.md#5-retrieval-strategies-overview)
 
-### Chains
+### [Chains](/LangChain/README.md#2-chains)
 * Prompt + LLM + Output Parsing
 * Can be used as building  blocks for longer chains
 * More application specific chains
-
 
 ## 1. Memory
 

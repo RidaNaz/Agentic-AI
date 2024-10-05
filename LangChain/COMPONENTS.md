@@ -97,6 +97,8 @@ Content can be:
 
 - Instead of `MessagesPlaceholder`, a placeholder can be defined using `{variable_name}` directly in the template.
 
+[Learn how to implement the Prompt Templates](/LangChain/PROMPTS.md#implementing-the-prompt-templates)
+
 ## 5. Example Selectors
 
 - Example Selectors are used in ***few-shot prompting*** to enhance model performance by providing specific examples of how the model should respond.
