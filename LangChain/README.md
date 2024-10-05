@@ -28,17 +28,17 @@ LangChain is a framework for building applications with large language models (L
 
 ## 1. Memory
 
-* ### ConversationBufferMemory:
-Stores the entire conversation history in a buffer, useful for applications needing full context.
+***ConversationBufferMemory:***
+- Stores the entire conversation history in a buffer, useful for applications needing full context.
 
-* ### ConversationBufferWindowMemory:
-Keeps only a recent window of interactions (e.g., last 5 messages), allowing for focused context while reducing memory usage.
+***ConversationBufferWindowMemory:***
+- Keeps only a recent window of interactions (e.g., last 5 messages), allowing for focused context while reducing memory usage.
 
-* ### ConversationTokenBufferMemory:
-Similar to buffer memory but limits history based on the number of tokens, optimizing memory for token-based models.
+***ConversationTokenBufferMemory:***
+- Similar to buffer memory but limits history based on the number of tokens, optimizing memory for token-based models.
 
-* ### ConversationSummaryMemory:
-Summarizes past interactions into a concise format, retaining key points instead of full transcripts, ideal for long conversations.
+***ConversationSummaryMemory:***
+- Summarizes past interactions into a concise format, retaining key points instead of full transcripts, ideal for long conversations.
 
 ## 2. Chains
 Chains are sequences of actions or components used to process inputs and produce structured outputs. They link different modules like language models, prompts, memory, and logic together, enabling complex workflows.
@@ -72,31 +72,3 @@ These are message types used to structure conversations in a clear and contextua
 - **MaximizingRelevanceExampleSelector:**   Focuses on selecting the most relevant examples for a task, prioritizing contextual appropriateness.
 
 - **RandomExampleSelector:**   Randomly selects examples from a set, providing diverse responses to enhance user engagement.
-
-
-# Relevant LangChain Classes for Gemini Models:
-
-## 1. GoogleGenerativeAIEmbeddings:
-
-- This class is used to create embeddings from Gemini models like `textembedding-gecko@001` for semantic search and other embedding-based applications.
-- Usage: It allows embedding of documents, text, and other content using the Google Gemini API.
-
-## 2. ChatGoogleGenerativeAI:
-
-- Used to integrate conversational capabilities of Gemini models, such as `gemini-1.5-flash`.
-- Supports *model configuration*, *conversation history*, and *response customization*.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
