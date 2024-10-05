@@ -64,7 +64,7 @@ async for event in chain.astream_events({"topic": "parrot"}, version="v2"):
 - Language models use tokens to improve efficiency and better understand context and structure.
 - **Example:** "LangChain is cool!" might be split into five separate tokens.
 
-## 2. Function / tool calling
+## 2. Function / Tool Calling
 
 - Tool calling (or function calling) allows chat models to generate structured output matching a schema but doesn’t execute the tool itself—the user controls this execution. Key features include:
 
@@ -188,6 +188,13 @@ examples = [
 documents = [
     Document(page_content=example['input'], metadata={"input": example["input"], "output": example["output"]}) 
     for example in examples
+
+vector_store = FAISS.from_documents(documents, embeddings)
+
+selector = SemanticSimilarityExampleSelector(
+    vectorstore=vector_store,
+    k=2, # Number of examples to select
+)
 ]
 ```
 
@@ -196,25 +203,42 @@ documents = [
 - Choose examples by random selection, semantic similarity, or token size.
 - Best performance often comes from semantic similarity.
 
-```py
-vector_store = FAISS.from_documents(documents, embeddings)
-
-selector = SemanticSimilarityExampleSelector(
-    vectorstore=vector_store,
-    k=2, # Number of examples to select
-)
-```
-
 ***Formatting Examples:***
 
 - Format for single-turn (simple input-output) or multi-turn (correct errors) contexts.
 - For chat models, insert as system strings or individual messages.
 - Use role labels like "example_user" and "example_assistant" to distinguish actors.
 
+```py
+# Define the example prompt template
+example_prompt = PromptTemplate(
+    input_variables=["input", "output"],
+    template="Input: {input}\nOutput: {output}",
+)
+
+# Create a Few-Shot Prompt Template using the selector
+few_shot_prompt = FewShotPromptTemplate(
+    example_selector=selector,
+    example_prompt=example_prompt,
+    prefix="You are a helpful assistant that provides accurate answers to questions.",
+    suffix="Input: {adjective}\nOutput:",
+    input_variables=["adjective"],
+    example_separator="\n\n",
+)
+```
+
 ***Tool Call Formatting:***
 
 - Different models have unique constraints for tool call examples (ToolMessages or AI Messages).
 - Adapt based on model-specific requirements.
+
+```py
+chain = LLMChain(
+    llm=llm,
+    prompt=few_shot_prompt,
+    verbose=True 
+)
+```
 
 ## 5. Retrieval Strategies Overview
 
@@ -278,9 +302,7 @@ selector = SemanticSimilarityExampleSelector(
 
 - LangChain provides a variety of text splitters to ***break down large text into smaller, manageable chunks*** for improved processing.
 
-## Text Splitters Overview
-
-LangChain provides a variety of text splitters designed for different use cases. Here’s a detailed comparison of each type:
+***Text Splitters Overview***
 
 | **Name**                    | **Classes**                                              | **Splits On**                 | **Adds Metadata** | **Description**                                                                                         |
 |-----------------------------|---------------------------------------------------------|------------------------------|------------------|---------------------------------------------------------------------------------------------------------|
