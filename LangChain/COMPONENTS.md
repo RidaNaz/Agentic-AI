@@ -49,7 +49,7 @@
 
 ## 3. Messages
 
-- Messages have a role, content, and optional response_metadata.
+- Messages have a role, content, and optional `response_metadata`.
 - Roles indicate who is sending the message, such as:
     - `user` (HumanMessage)
     - `assistant` (AIMessage)
@@ -64,9 +64,9 @@ Content can be:
 ***Message Types:***
 
 - **HumanMessage:**  Represents user input.
-- **AIMessage:**  Represents AI responses and can contain response_metadata (e.g., token usage, log-probs).
+- **AIMessage:**  Represents AI responses and can contain `response_metadata` (e.g., token usage, log-probs).
 - **SystemMessage:**  Provides instructions to the model (e.g., defining behavior).
-- **ToolMessage:**  Contains results from tools, with fields like tool_call_id and artifact.
+- **ToolMessage:**  Contains results from tools, with fields like `tool_call_id` and artifact.
 - **FunctionMessage:**  Legacy type, now replaced by ToolMessage.
 
 ***Tool Calls:***
@@ -167,7 +167,7 @@ Content can be:
 ***Functionality:***
 
 - Each loader has its own specific parameters tailored to the source it integrates with.
-- All loaders can be invoked uniformly using the .load method.
+- All loaders can be invoked uniformly using the `.load` method.
 
 ***Example Use Case:***
 
@@ -263,3 +263,5 @@ retriever = vectorstore.as_retriever()
 ***Flexibility:***
 
 - The retriever interface is versatile, making it applicable across different retrieval methods and data sources.
+
+[Retrieval Strategies Overview](/LangChain/TECHNIQUES.md#5-retrieval-strategies-overview)
