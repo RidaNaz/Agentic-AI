@@ -17,6 +17,15 @@
 - **Streaming Support:**     Stream outputs as they are produced by each node (including token streaming).
 - **Integration with LangChain:**    LangGraph integrates seamlessly with LangChain and LangSmith (but does not require them).
 
+### Step by Step Breakdown
+
+1. Initialize the model and tools
+2. Initialize graph with state
+3. Define graph nodes
+4. Define entry point and graph edges
+5. Compile the graph
+6. Execute the graph
+
 # The Simplest Graph
 Let's build a simple graph with 2 nodes and simple edges flow.
 
